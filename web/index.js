@@ -11,7 +11,7 @@ const vm = new Vue({
             <button class="btn btn-primary" v-on:click="call_eel_success()">正常系</button>
             <button class="btn btn-primary" v-on:click="call_eel_error()">異常系</button>
             <button class="btn btn-primary" v-on:click="reset()">リセット</button>
-            <div>{{result}}</div>
+            <div v-cloak>{{result}}</div>
         </div>
     `,
     methods: {
