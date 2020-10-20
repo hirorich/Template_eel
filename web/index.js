@@ -8,18 +8,26 @@ const vm = new Vue({
     },
     template: `
         <div>
-            <button class="btn btn-primary" v-on:click="call_eel()"></button>
+            <button class="btn btn-primary" v-on:click="call_eel_success()">正常系</button>
+            <button class="btn btn-primary" v-on:click="call_eel_error()">異常系</button>
+            <button class="btn btn-primary" v-on:click="reset()">リセット</button>
             <div>{{result}}</div>
         </div>
     `,
     methods: {
-        call_eel: function() {
-            this.result = "";
+        call_eel_success: function() {
             let request = {test: "TEST"};
+            eel.request(request);
+        },
+        call_eel_error: function() {
+            let request = {};
             eel.request(request);
         },
         callback_eel: function(response) {
             this.result = response;
+        },
+        reset: function() {
+            this.result = "";
         }
     }
 });
